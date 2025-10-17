@@ -96,7 +96,8 @@
             if (int.IsNegative(healAmount))
                 throw new ArgumentException("heal amount cannot be negative");
             Health = Math.Min(CharacterValidator.MaxHealth, Health += healAmount);
-        }
+        } 
+        //LEZGOSKI
 
     }
 }
