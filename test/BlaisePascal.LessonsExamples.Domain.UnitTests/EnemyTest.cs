@@ -99,14 +99,16 @@
 
         }
 
+     
+
         [Fact]
         public void TakeDamage_WhenTheEnemyIsAlive_AndDamageIsMinorThanHealthThenTakeDamage()
         {
             //Arrange
-            Enemy newEnemy = new Enemy();
+            Enemy newEnemy = new Enemy("Goblin", 100);
 
             //Act
-            newEnemy.SetHealth(100);           
+                      
             newEnemy.TakeDamage(20);
            
             //Assert
@@ -198,6 +200,20 @@
 
             Assert.Equal(100, newEnemy.Health);
         }
+
+
+        [Fact]
+
+        public void Heal_WhenEnemyIsNotAlive_NoHealthIsAdded()
+        {
+            Enemy newEnemy = new Enemy("Sas", 0);
+
+            newEnemy.Heal(20);
+            
+            Assert.Equal(0, newEnemy.Health);
+        }
     }
+
+        
             
 }

@@ -86,16 +86,18 @@
         {
             if (damage < 0)
                 throw new ArgumentException("Damage cannot be negative");
-
-            Health = Math.Max(Health - damage, CharacterValidator.MinHealth);          
-
+            
+            
+            Health = Math.Max(Health - damage, CharacterValidator.MinHealth);
+            
         }
 
         public void Heal(int healAmount)
         {
             if (int.IsNegative(healAmount))
                 throw new ArgumentException("heal amount cannot be negative");
-            Health = Math.Min(CharacterValidator.MaxHealth, Health += healAmount);
+            if (IsAlive)
+                Health = Math.Min(CharacterValidator.MaxHealth, Health += healAmount);
         } 
         //LEZGOSKI
 
